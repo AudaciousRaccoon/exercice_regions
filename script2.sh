@@ -11,4 +11,4 @@ echo "<ul>" >> $1.html
 cat tmp2 >> $1.html
 echo "</ul>" >> $1.html
 
-
+rm tmp tmp2 
