@@ -1,0 +1,18 @@
+server {
+	listen 80;
+	server_name regions.team3.fr;
+	root /var/www/html/exercice_regions/exercice_regions/;
+
+	location ~ /([0-9]+).cgi$ {
+		include fastcgi_params;
+       		fastcgi_param SCRIPT_FILENAME /var/www/html/exercice_regions/exercice_regions/main.sh;
+		fastcgi_param QUERY_STRING $1;
+       		fastcgi_index $1.html;
+       		fastcgi_pass unix:/run/fcgiwrap.socket;
+
+
+	}
+
+}	
+
+
